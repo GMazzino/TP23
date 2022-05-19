@@ -6,7 +6,7 @@ import { webAuth } from "../handlers/auth/auth.js";
 const { Router } = express;
 const router = Router();
 
-router.get("/", webAuth, (req, res) => {
+router.get("/", webAuth, async (req, res) => {
   res.status(200).sendFile(`${nodePath()}${sep}html${sep}index.html`);
 });
 

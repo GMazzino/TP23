@@ -1,13 +1,12 @@
 import { cwd as nodePath } from "node:process";
 import { sep } from "node:path";
-let name;
 
 async function sendLogin(req, res) {
   await res.sendFile(`${nodePath()}${sep}html${sep}login.html`);
 }
 
 async function initSession(req, res) {
-  name = req.body?.name;
+  const name = req.body?.name;
   if (name) {
     req.session.name = name;
     await res.sendFile(`${nodePath()}${sep}html${sep}index.html`);
@@ -16,4 +15,4 @@ async function initSession(req, res) {
   }
 }
 
-export { sendLogin, initSession, name };
+export { sendLogin, initSession };
